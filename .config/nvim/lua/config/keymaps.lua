@@ -50,3 +50,26 @@ keymap("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>", { desc = "Unstage
 keymap("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview hunk" })
 keymap("n", "<leader>gn", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next hunk" })
 keymap("n", "<leader>gN", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk" })
+keymap("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", { desc = "Stage buffer" })
+
+-- Terminal
+keymap("n", "<leader>ft", function()
+    vim.api.nvim_set_current_buf(vim.api.nvim_create_buf(false, true))
+    vim.api.nvim_open_win(vim.api.nvim_get_current_buf(), true, {
+        relative = "editor",
+        row = math.floor(vim.o.lines * 0.1),
+        col = math.floor(vim.o.columns * 0.1),
+        width = math.floor(vim.o.columns * 0.8),
+        height = math.floor(vim.o.lines * 0.8),
+        border = "single",
+        style = "minimal",
+    })
+    vim.cmd("startinsert")
+    vim.cmd("terminal")
+end, { desc = "Open floating terminal" })
+
+-- Diffview
+keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+
+-- Fugitive
+keymap("n", "<leader>gg", "<cmd>Git<cr>", { desc = "Open Git status" })
