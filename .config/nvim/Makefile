@@ -4,11 +4,11 @@ all: help
 
 help:
 	@echo "Available commands:"
-	@echo "  install - Installs dependencies (nvim, luacheck, stylua) using homebrew."
+	@echo "  mac-install - Installs dependencies (nvim, luacheck, stylua) using homebrew."
 	@echo "  lint    - Lints Lua files using luacheck."
 	@echo "  format  - Formats Lua files using stylua."
 
-install:
+mac-install:
 	@echo "Checking for Homebrew..."
 	@if ! command -v brew &> /dev/null; then \
 		echo "Homebrew not found. Installing Homebrew..."; \
