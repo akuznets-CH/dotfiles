@@ -1,4 +1,3 @@
--- .luacheckrc
 read_globals = {
   "vim",
   "require",

@@ -10,7 +10,7 @@ return {
     -- nvim-lspconfig: LSP client
     {
         "neovim/nvim-lspconfig",
-        dependencies = { "williamboman/mason.nvim" }, -- Mason is a dependency
+        dependencies = { "williamboman/mason.nvim" },
     },
 
     -- mason-lspconfig: Bridges Mason and nvim-lspconfig
@@ -19,7 +19,7 @@ return {
         dependencies = {
             "neovim/nvim-lspconfig",
             "williamboman/mason.nvim",
-            "hrsh7th/cmp-nvim-lsp", -- Add cmp-nvim-lsp as a dependency here for clarity
+            "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -44,7 +44,7 @@ return {
                     "jsonls",
                 },
                 handlers = {
-                    function(server_name) -- default handler (optional)
+                    function(server_name)
                         require("lspconfig")[server_name].setup({
                             capabilities = capabilities,
                         })
