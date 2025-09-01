@@ -37,7 +37,7 @@ return {
                     "taplo",
                     "lemminx",
                     "yamlls",
-                    "tsserver",
+                    "ts_ls",
                     "clangd",
                     "html",
                     "cssls",
