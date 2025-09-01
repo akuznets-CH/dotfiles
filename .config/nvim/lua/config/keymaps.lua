@@ -70,6 +70,7 @@ end, { desc = "Open floating terminal" })
 
 -- Diffview
 keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+keymap("n", "<leader>gD", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
 
 -- Fugitive
 keymap("n", "<leader>gg", "<cmd>Git<cr>", { desc = "Open Git status" })
