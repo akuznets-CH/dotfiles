@@ -23,7 +23,7 @@ install:
 lint:
 	@echo "Linting with luacheck..."
 	@luacheck .
-	@echo "Done!"
+	@echo "Done."
 
 TEXT_FILES := $(shell find . -type f -not -path "./.git/*" -exec sh -c 'file -b --mime-type "$$0" | grep -q "^text" && echo "$$0"' {} \;)
 
@@ -39,4 +39,4 @@ format:
 		fi; \
 		fi; \
 		done
-	@echo "Done!"
+	@echo "Done."
