@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/lua-language-server/master/setting/schema.json",
+  "Lua.runtime.version": "LuaJIT",
+  "Lua.workspace.library": [
+    "${3rd}/luv/library",
+    "${3rd}/luarocks/library",
+    "${3rd}/nvim/runtime",
+    "lua"
+  ],
+  "Lua.diagnostics.globals": [
+    "vim",
+    "require"
+  ]
+}
