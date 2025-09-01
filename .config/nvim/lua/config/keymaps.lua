@@ -40,6 +40,6 @@ keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Set loclist" })
 
 -- Copilot Chat
 keymap("n", "<leader>cc", "<cmd>CopilotChatToggle<cr>", { desc = "Toggle Copilot Chat" })
+keymap("n", "<leader>cr", "<cmd>CopilotChatReset<cr>", { desc = "Reset Copilot Chat" })
 keymap("v", "<leader>ce", "<cmd>CopilotChatExplain<cr>", { desc = "CopilotChat - Explain code" })
 keymap("v", "<leader>ct", "<cmd>CopilotChatTests<cr>", { desc = "CopilotChat - Generate tests" })
-

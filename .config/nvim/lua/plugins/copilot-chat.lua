@@ -1,18 +1,18 @@
 return {
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    dependencies = {
-      { "nvim-lua/plenary.nvim", branch = "master" },
-    },
-    build = "make tiktoken",
-    opts = {
-        model = 'gpt-5',
-        temperature = 0.1,
-        window = {
-            layout = 'vertical',
-            width = 0.5,
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "nvim-lua/plenary.nvim", branch = "master" },
         },
-        auto_insert_mode = true,
+        opts = {
+            model = "gpt-5",
+            temperature = 0.8,
+            window = {
+                layout = "float",
+                width = 0.75,
+                height=0.75,
+            },
+            auto_insert_mode = false,
+        },
     },
-},
 }
