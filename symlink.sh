@@ -7,5 +7,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ln -sfv "$DIR/.vimrc" "$HOME/.vimrc"
 ln -sfv "$DIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sfv "$DIR/.config/nvim" "$HOME/.config/nvim"
+ln -sfv "$DIR/.config/ghostty "$HOME/.config/ghostty"
 
 echo "Done."
