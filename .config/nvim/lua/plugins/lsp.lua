@@ -37,6 +37,11 @@ return {
                     "taplo",
                     "lemminx",
                     "yamlls",
+                    "tsserver",
+                    "clangd",
+                    "html",
+                    "cssls",
+                    "jsonls",
                 },
                 handlers = {
                     function(server_name) -- default handler (optional)
