@@ -4,6 +4,7 @@ return {
         dependencies = {
             { "nvim-lua/plenary.nvim", branch = "master" },
         },
+        event = "VeryLazy",
         opts = {
             model = "gpt-5",
             temperature = 0.8,
