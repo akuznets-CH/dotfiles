@@ -4,7 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
     },
     config = function()
-        require('telescope').setup {
+        require("telescope").setup({
             pickers = {
                 find_files = {
                     hidden = true,
@@ -40,6 +40,6 @@ return {
                     },
                 },
             },
-        }
+        })
     end,
 }
