@@ -10,7 +10,7 @@ return {
             window = {
                 layout = "float",
                 width = 0.75,
-                height=0.75,
+                height = 0.75,
             },
             auto_insert_mode = false,
         },
