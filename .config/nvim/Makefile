@@ -33,10 +33,8 @@ format:
 	@stylua .
 	@echo "Adding trailing newline to text files..."
 	@for file in $(TEXT_FILES); do \
-		if [ -f "$file" ]; then \
-		if [ -n "$(tail -c 1 "$file")" ]; then \
-		echo "" >> "$file"; \
+		if [ -n "$(tail -c 1 \"$file\")" ]; then \
+			echo "" >> \"$file\"; \
 		fi; \
-		fi; \
-		done
+	done
 	@echo "Done."
