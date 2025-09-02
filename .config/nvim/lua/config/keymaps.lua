@@ -12,7 +12,6 @@ keymap("t", "<Esc>", function()
     end
 end, { desc = "Exit terminal mode or close floating terminal" })
 
-
 -- Navigate between panes with leader + h/j/k/l
 keymap({ "n" }, "<leader>h", "<C-w>h")
 keymap({ "n" }, "<leader>j", "<C-w>j")
