@@ -2,6 +2,7 @@ return {
     -- Mason: LSP installer
     {
         "williamboman/mason.nvim",
+        event = "VeryLazy",
         config = function()
             require("mason").setup()
         end,
@@ -10,12 +11,14 @@ return {
     -- nvim-lspconfig: LSP client
     {
         "neovim/nvim-lspconfig",
+        event = "VeryLazy",
         dependencies = { "williamboman/mason.nvim" },
     },
 
     -- mason-lspconfig: Bridges Mason and nvim-lspconfig
     {
         "williamboman/mason-lspconfig.nvim",
+        event = "VeryLazy",
         dependencies = {
             "neovim/nvim-lspconfig",
             "williamboman/mason.nvim",
