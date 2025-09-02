@@ -1,7 +1,7 @@
 This repository manages personal dotfiles for a macOS development environment, primarily configuring Neovim, tmux, and Ghostty.
 
 **Key Tools and Applications Configured:**
-*   **Neovim (nvim):** The primary text editor, configured extensively using Lua. It leverages `lazy.nvim` for plugin management and integrates various tools like Language Server Protocol (LSP) via `mason.nvim` and `nvim-lspconfig`, `telescope.nvim` for fuzzy finding, `gitsigns.nvim` and `vim-fugitive` for Git integration, and `Copilot` for AI assistance.
+*   **Neovim (nvim):** The primary text editor, configured extensively using Lua. It leverages `lazy.nvim` for plugin management and integrates various tools like Language Server Protocol (LSP) via `mason.nvim` and `nvim-lspconfig`, `telescope.nvim` for fuzzy finding, `gitsigns.nvim` and `vim-fugitive` for Git integration, `Copilot` for AI assistance, and `render-markdown.nvim` for in-editor Markdown rendering.
 *   **tmux:** A terminal multiplexer, configured with custom keybindings and a `C-Space` prefix.
 *   **Ghostty:** A terminal emulator, with basic theme configuration.
 *   **Vim:** A basic `.vimrc` is included for compatibility or fallback scenarios.
