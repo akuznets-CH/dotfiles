@@ -2,7 +2,6 @@
 
 echo "Deleting existing symlinks and files/folders created by symlink.sh..."
 
-# Define the target paths
 TARGETS=(
     "$HOME/.vimrc"
     "$HOME/.tmux.conf"
