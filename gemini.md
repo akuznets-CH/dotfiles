@@ -2,11 +2,17 @@ This repository manages personal dotfiles for a macOS development environment, c
 
 **Key Tools and Applications Configured (Current Focus):**
 *   **Neovim (nvim):** The primary text editor, configured extensively using Lua. It leverages `lazy.nvim` for plugin management and integrates various tools like Language Server Protocol (LSP) via `mason.nvim` (LSP installer) and `nvim-lspconfig` (LSP client), `telescope.nvim` for fuzzy finding, `gitsigns.nvim` and `vim-fugitive` for Git integration, `Copilot` for AI assistance (`copilot.lua`, `copilot-cmp`, `CopilotChat.nvim`), `diffview.nvim` for Git diffs, `lualine.nvim` for status lines, `render-markdown.nvim` for markdown rendering, `rose-pine` for theming, `nvim-tree.lua` for file exploration, `nvim-treesitter` for syntax highlighting and parsing, and `which-key.nvim` for keybinding hints. Keymaps are defined in `lua/config/keymaps.lua`, general options in `lua/config/options.lua`, autocommands in `lua/config/auto-commands.lua`, and user-defined commands in `lua/config/user-commands.lua`. The `lazy-lock.json` file tracks plugin versions.
+    *   **GitHub Repo:** [neovim/neovim](https://github.com/neovim/neovim)
 *   **tmux:** A terminal multiplexer, configured with a `C-Space` prefix and custom keybindings for pane navigation (`C-Space h/j/k/l`).
+    *   **GitHub Repo:** [tmux/tmux](https://github.com/tmux/tmux)
 *   **Ghostty:** A terminal emulator, with basic theme configuration using `rose-pine`.
+    *   **GitHub Repo:** [ghostty-org/ghostty](https://github.com/ghostty-org/ghostty)
 *   **Vim:** A basic `.vimrc` is included for compatibility or fallback scenarios, defining leader keys, common options, keymaps for terminal exit and window navigation, and autocommands for clipboard sync and search highlighting.
 
-**Configuration Management Strategy:**
+**Configuration Management Strategy:
+
+**Important Note on External Project Information:**
+Before starting a task that might depend on up-to-date information about one of the listed projects (Neovim, tmux, Ghostty, etc.), you should navigate to the GitHub README for that project and find the information you need from there. If you ever encounter a dead link in this `gemini.md` file, you must either find an up-to-date replacement, or remove the link if no replacement exists.**
 The core of this dotfiles setup relies on **symlinking**. Source configuration files and directories within this repository are symlinked to their appropriate locations in the user's home directory (`$HOME`). This strategy ensures that all configurations are version-controlled and easily deployable.
 
 *   **Deployment:** The `scripts/symlink.sh` script is responsible for creating these symbolic links.
