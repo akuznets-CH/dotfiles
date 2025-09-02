@@ -115,7 +115,8 @@ end
 keymap("n", "<leader>ft", toggle_floating_terminal, { desc = "Toggle floating terminal" })
 
 -- Diffview
-keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+keymap("n", "<leader>gdd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+keymap("n", "<leader>gdm", "<cmd>DiffviewOpen origin/main...<cr>", { desc = "Open Diffview against origin/main" })
 keymap("n", "<leader>gD", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
 
 -- Fugitive
