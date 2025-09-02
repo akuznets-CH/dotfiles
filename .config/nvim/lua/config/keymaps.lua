@@ -54,8 +54,8 @@ keymap("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", { desc = "Stage buff
 
 -- Terminal
 keymap("n", "<leader>ft", function()
-    vim.api.nvim_set_current_buf(vim.api.nvim_create_buf(false, true))
-    vim.api.nvim_open_win(vim.api.nvim_get_current_buf(), true, {
+    local new_buf = vim.api.nvim_create_buf(true, false) -- Create a new scratch, unlisted buffer
+    local win_id = vim.api.nvim_open_win(new_buf, true, {
         relative = "editor",
         row = math.floor(vim.o.lines * 0.1),
         col = math.floor(vim.o.columns * 0.1),
@@ -64,9 +64,18 @@ keymap("n", "<leader>ft", function()
         border = "single",
         style = "minimal",
     })
+    vim.api.nvim_set_current_win(win_id) -- Set current window to the new floating window
+    vim.cmd("terminal") -- Open terminal in this window
     vim.cmd("startinsert")
-    vim.cmd("terminal")
 end, { desc = "Open floating terminal" })
+
+keymap("n", "<leader>fT", function()
+    local win_id = vim.api.nvim_get_current_win()
+    local win_config = vim.api.nvim_win_get_config(win_id)
+    if win_config.relative == "editor" and vim.bo.buftype == "terminal" then
+        vim.api.nvim_win_close(win_id, true)
+    end
+end, { desc = "Close floating terminal" })
 
 -- Diffview
 keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
