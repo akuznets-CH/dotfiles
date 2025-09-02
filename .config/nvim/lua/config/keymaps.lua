@@ -1,7 +1,17 @@
 local keymap = vim.keymap.set
 
 -- Use <Esc> to exit terminal mode
-keymap("t", "<Esc>", "<C-\\><C-n>")
+keymap("t", "<Esc>", function()
+    local win_id = vim.api.nvim_get_current_win()
+    local win_config = vim.api.nvim_win_get_config(win_id)
+    if win_config.relative == "editor" and vim.bo.buftype == "terminal" then
+        vim.api.nvim_win_close(win_id, true)
+    else
+        -- Fallback to default behavior for non-floating terminals or other buffers
+        vim.api.nvim_input([[\<C-\\><C-n>]])
+    end
+end, { desc = "Exit terminal mode or close floating terminal" })
+
 
 -- Navigate between panes with leader + h/j/k/l
 keymap({ "n" }, "<leader>h", "<C-w>h")
@@ -53,29 +63,57 @@ keymap("n", "<leader>gN", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk
 keymap("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<cr>", { desc = "Stage buffer" })
 
 -- Terminal
-keymap("n", "<leader>ft", function()
-    local new_buf = vim.api.nvim_create_buf(true, false) -- Create a new scratch, unlisted buffer
-    local win_id = vim.api.nvim_open_win(new_buf, true, {
-        relative = "editor",
-        row = math.floor(vim.o.lines * 0.1),
-        col = math.floor(vim.o.columns * 0.1),
-        width = math.floor(vim.o.columns * 0.8),
-        height = math.floor(vim.o.lines * 0.8),
-        border = "single",
-        style = "minimal",
-    })
-    vim.api.nvim_set_current_win(win_id) -- Set current window to the new floating window
-    vim.cmd("terminal") -- Open terminal in this window
-    vim.cmd("startinsert")
-end, { desc = "Open floating terminal" })
+local terminal_buf = nil
+local terminal_win = nil
 
-keymap("n", "<leader>fT", function()
-    local win_id = vim.api.nvim_get_current_win()
-    local win_config = vim.api.nvim_win_get_config(win_id)
-    if win_config.relative == "editor" and vim.bo.buftype == "terminal" then
-        vim.api.nvim_win_close(win_id, true)
+local function toggle_floating_terminal()
+    local buf_exists = terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf)
+    local win_exists = terminal_win and vim.api.nvim_win_is_valid(terminal_win)
+
+    if win_exists then
+        -- Window exists, toggle visibility
+        local win_config = vim.api.nvim_win_get_config(terminal_win)
+        if win_config.hidden then
+            -- It's hidden, show it
+            vim.api.nvim_win_set_config(terminal_win, { hidden = false })
+            vim.api.nvim_set_current_win(terminal_win)
+            vim.cmd("startinsert")
+        else
+            -- It's visible, hide it
+            vim.api.nvim_win_set_config(terminal_win, { hidden = true })
+        end
+    elseif buf_exists then
+        -- Buffer exists, but window doesn't. Re-open window for existing buffer.
+        terminal_win = vim.api.nvim_open_win(terminal_buf, true, {
+            relative = "editor",
+            row = math.floor(vim.o.lines * 0.1),
+            col = math.floor(vim.o.columns * 0.1),
+            width = math.floor(vim.o.columns * 0.8),
+            height = math.floor(vim.o.lines * 0.8),
+            border = "single",
+            style = "minimal",
+        })
+        vim.api.nvim_set_current_win(terminal_win)
+        vim.cmd("startinsert")
+    else
+        -- Neither buffer nor window exists, create new
+        terminal_buf = vim.api.nvim_create_buf(true, false)
+        terminal_win = vim.api.nvim_open_win(terminal_buf, true, {
+            relative = "editor",
+            row = math.floor(vim.o.lines * 0.1),
+            col = math.floor(vim.o.columns * 0.1),
+            width = math.floor(vim.o.columns * 0.8),
+            height = math.floor(vim.o.lines * 0.8),
+            border = "single",
+            style = "minimal",
+        })
+        vim.api.nvim_set_current_win(terminal_win)
+        vim.cmd("terminal")
+        vim.cmd("startinsert")
     end
-end, { desc = "Close floating terminal" })
+end
+
+keymap("n", "<leader>ft", toggle_floating_terminal, { desc = "Toggle floating terminal" })
 
 -- Diffview
 keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
