@@ -1,10 +1,10 @@
 This repository manages personal dotfiles for a macOS development environment, configuring various tools and applications. While currently focused on Neovim, tmux, and Ghostty, the architecture is designed to be extensible for future configurations.
 
 **Key Tools and Applications Configured (Current Focus):**
-*   **Neovim (nvim):** The primary text editor, configured extensively using Lua. It leverages `lazy.nvim` for plugin management and integrates various tools like Language Server Protocol (LSP) via `mason.nvim` and `nvim-lspconfig`, `telescope.nvim` for fuzzy finding, `gitsigns.nvim` and `vim-fugitive` for Git integration, and `Copilot` for AI assistance.
-*   **tmux:** A terminal multiplexer, configured with custom keybindings and a `C-Space` prefix.
-*   **Ghostty:** A terminal emulator, with basic theme configuration.
-*   **Vim:** A basic `.vimrc` is included for compatibility or fallback scenarios.
+*   **Neovim (nvim):** The primary text editor, configured extensively using Lua. It leverages `lazy.nvim` for plugin management and integrates various tools like Language Server Protocol (LSP) via `mason.nvim` (LSP installer) and `nvim-lspconfig` (LSP client), `telescope.nvim` for fuzzy finding, `gitsigns.nvim` and `vim-fugitive` for Git integration, `Copilot` for AI assistance (`copilot.lua`, `copilot-cmp`, `CopilotChat.nvim`), `diffview.nvim` for Git diffs, `lualine.nvim` for status lines, `render-markdown.nvim` for markdown rendering, `rose-pine` for theming, `nvim-tree.lua` for file exploration, `nvim-treesitter` for syntax highlighting and parsing, and `which-key.nvim` for keybinding hints. Keymaps are defined in `lua/config/keymaps.lua`, general options in `lua/config/options.lua`, autocommands in `lua/config/auto-commands.lua`, and user-defined commands in `lua/config/user-commands.lua`. The `lazy-lock.json` file tracks plugin versions.
+*   **tmux:** A terminal multiplexer, configured with a `C-Space` prefix and custom keybindings for pane navigation (`C-Space h/j/k/l`).
+*   **Ghostty:** A terminal emulator, with basic theme configuration using `rose-pine`.
+*   **Vim:** A basic `.vimrc` is included for compatibility or fallback scenarios, defining leader keys, common options, keymaps for terminal exit and window navigation, and autocommands for clipboard sync and search highlighting.
 
 **Configuration Management Strategy:**
 The core of this dotfiles setup relies on **symlinking**. Source configuration files and directories within this repository are symlinked to their appropriate locations in the user's home directory (`$HOME`). This strategy ensures that all configurations are version-controlled and easily deployable.
@@ -13,7 +13,7 @@ The core of this dotfiles setup relies on **symlinking**. Source configuration f
 *   **Cleanup:** The `scripts/delete_symlinks.sh` script removes existing symlinks and associated directories/files, ensuring a clean state before re-deployment.
 *   **Automation:** `Makefile`s are used to automate common tasks across the repository:
     *   The root `Makefile` orchestrates the main setup process (`make setup-mac`), which includes deleting old symlinks, installing dependencies via Homebrew, and creating new symlinks.
-    *   Specific configuration directories, such as `.config/nvim/`, may contain their own `Makefile`s for tasks relevant to that particular tool (e.g., linting and formatting Neovim's Lua configuration files, installing Neovim-specific dependencies).
+    *   Specific configuration directories, such as `.config/nvim/`, contain their own `Makefile`s for tasks relevant to that particular tool (e.g., `make lint` for linting and `make format` for formatting Neovim's Lua configuration files, installing Neovim-specific dependencies).
 
 **Setup and Installation:**
 *   The `scripts/brew-install.sh` script handles the installation of core tools (e.g., `nvim`, `tmux`, `ghostty`) using Homebrew, including a check for Homebrew's presence.
