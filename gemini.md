@@ -9,8 +9,6 @@ This repository manages personal dotfiles for a macOS development environment, c
     *   **GitHub Repo:** [ghostty-org/ghostty](https://github.com/ghostty-org/ghostty)
 *   **Vim:** A basic `.vimrc` is included for compatibility or fallback scenarios, defining leader keys, common options, keymaps for terminal exit and window navigation, and autocommands for clipboard sync and search highlighting.
 
-**Configuration Management Strategy:
-
 **Important Note on External Project Information:**
 Before starting a task that might depend on up-to-date information about one of the listed projects (Neovim, tmux, Ghostty, etc.), you should navigate to the GitHub README for that project and find the information you need from there. If you ever encounter a dead link in this `gemini.md` file, you must either find an up-to-date replacement, or remove the link if no replacement exists.**
 The core of this dotfiles setup relies on **symlinking**. Source configuration files and directories within this repository are symlinked to their appropriate locations in the user's home directory (`$HOME`). This strategy ensures that all configurations are version-controlled and easily deployable.
