@@ -24,4 +24,4 @@ The core of this dotfiles setup relies on **symlinking**. Source configuration f
 2.  **Re-deploy Symlinks:** After making changes, run `make symlink` from the repository root to update the symlinked files in your home directory. For a full refresh, `make setup-mac` can be used.
 3.  **Maintain Code Quality (Neovim):** For Neovim Lua configurations, utilize `make format` and `make lint` within the `.config/nvim/` directory to ensure code style and quality.
 
-**Important:** For any change you make to the codebase, you should ask if that change invalidates anything stated in the `readme.md` or `gemini.md` files. If it does, you should update the file accordingly.
+**Important:** For any change you make to the codebase, you should ask yourself if that change invalidates anything stated in the `readme.md` or `gemini.md` files. If it does, you should update the file accordingly.
