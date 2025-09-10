@@ -12,11 +12,11 @@ keymap("t", "<Esc>", function()
     end
 end, { desc = "Exit terminal mode or close floating terminal" })
 
--- Navigate between panes with leader + h/j/k/l
-keymap({ "n" }, "<leader>h", "<C-w>h")
-keymap({ "n" }, "<leader>j", "<C-w>j")
-keymap({ "n" }, "<leader>k", "<C-w>k")
-keymap({ "n" }, "<leader>l", "<C-w>l")
+-- Navigate between panes with ctrl + h/j/k/l
+keymap({ "n" }, "<C-h>", "<C-w>h")
+keymap({ "n" }, "<C-j>", "<C-w>j")
+keymap({ "n" }, "<C-k>", "<C-w>k")
+keymap({ "n" }, "<C-l>", "<C-w>l")
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
