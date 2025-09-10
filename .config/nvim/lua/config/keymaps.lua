@@ -47,12 +47,6 @@ keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic"
 keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
 keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Set loclist" })
 
--- Copilot Chat
-keymap("n", "<leader>cc", "<cmd>CopilotChatToggle<cr>", { desc = "Toggle Copilot Chat" })
-keymap("n", "<leader>cr", "<cmd>CopilotChatReset<cr>", { desc = "Reset Copilot Chat" })
-keymap("v", "<leader>ce", "<cmd>CopilotChatExplain<cr>", { desc = "CopilotChat - Explain code" })
-keymap("v", "<leader>ct", "<cmd>CopilotChatTests<cr>", { desc = "CopilotChat - Generate tests" })
-
 -- Gitsigns
 keymap("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })
 keymap("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<cr>", { desc = "Unstage hunk" })
