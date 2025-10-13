@@ -1,5 +1,9 @@
 local keymap = vim.keymap.set
 
+-- Clipboard
+keymap("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+keymap("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+
 -- Use <Esc> to exit terminal mode
 keymap("t", "<Esc>", function()
     local win_id = vim.api.nvim_get_current_win()
