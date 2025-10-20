@@ -1,5 +1,9 @@
 local keymap = vim.keymap.set
 
+-- Clipboard
+keymap("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+keymap("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+
 -- Use <Esc> to exit terminal mode
 keymap("t", "<Esc>", function()
     local win_id = vim.api.nvim_get_current_win()
@@ -12,11 +16,11 @@ keymap("t", "<Esc>", function()
     end
 end, { desc = "Exit terminal mode or close floating terminal" })
 
--- Navigate between panes with leader + h/j/k/l
-keymap({ "n" }, "<leader>h", "<C-w>h")
-keymap({ "n" }, "<leader>j", "<C-w>j")
-keymap({ "n" }, "<leader>k", "<C-w>k")
-keymap({ "n" }, "<leader>l", "<C-w>l")
+-- Navigate between panes with ctrl + h/j/k/l
+keymap({ "n" }, "<C-h>", "<C-w>h")
+keymap({ "n" }, "<C-j>", "<C-w>j")
+keymap({ "n" }, "<C-k>", "<C-w>k")
+keymap({ "n" }, "<C-l>", "<C-w>l")
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
@@ -46,12 +50,6 @@ keymap("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostics" 
 keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
 keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
 keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Set loclist" })
-
--- Copilot Chat
-keymap("n", "<leader>cc", "<cmd>CopilotChatToggle<cr>", { desc = "Toggle Copilot Chat" })
-keymap("n", "<leader>cr", "<cmd>CopilotChatReset<cr>", { desc = "Reset Copilot Chat" })
-keymap("v", "<leader>ce", "<cmd>CopilotChatExplain<cr>", { desc = "CopilotChat - Explain code" })
-keymap("v", "<leader>ct", "<cmd>CopilotChatTests<cr>", { desc = "CopilotChat - Generate tests" })
 
 -- Gitsigns
 keymap("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })
@@ -115,7 +113,8 @@ end
 keymap("n", "<leader>ft", toggle_floating_terminal, { desc = "Toggle floating terminal" })
 
 -- Diffview
-keymap("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+keymap("n", "<leader>gdd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+keymap("n", "<leader>gdm", "<cmd>DiffviewOpen origin/main...<cr>", { desc = "Open Diffview against origin/main" })
 keymap("n", "<leader>gD", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
 
 -- Fugitive

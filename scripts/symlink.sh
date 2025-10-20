@@ -3,6 +3,7 @@
 # Get the directory of this script's parent (the dotfiles root)
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
 
+ln -sfv "$DIR/.zshrc" "$HOME/.zshrc"
 ln -sfv "$DIR/.vimrc" "$HOME/.vimrc"
 ln -sfv "$DIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sfnv "$DIR/.config/nvim" "$HOME/.config/nvim"

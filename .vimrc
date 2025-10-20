@@ -20,15 +20,9 @@ set softtabstop=4
 " Exit terminal mode with Esc
 tnoremap <Esc> <C-\><C-n>
 " Navigate between windows
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-
-" Autocommands
-" Sync clipboard with system
-au VimEnter * set clipboard=unnamedplus
-
-" Packages
-" Disable search highlighting automatically
-packadd! nohlsearch
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p

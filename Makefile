@@ -18,7 +18,7 @@ symlink:
 
 delete-symlinks:
 	@echo "Running delete symlinks script..."
-	./scripts/delete_symlinks.sh
+	./scripts/delete-symlinks.sh
 
 brew-install:
 	@echo "Running brew install script..."
