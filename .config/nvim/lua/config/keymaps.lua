@@ -25,8 +25,11 @@ keymap({ "n" }, "<C-l>", "<C-w>l")
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
+keymap("n", "<leader>fw", "<cmd>Telescope grep_string<cr>", { desc = "Search word under cursor" })
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
+keymap("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Search commands" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
+keymap("n", "<leader>xx", "<cmd>Telescope diagnostics<cr>", { desc = "Show workspace diagnostics" })
 
 -- NvimTree
 keymap("n", "<leader>o", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
@@ -117,5 +120,3 @@ keymap("n", "<leader>gdd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
 keymap("n", "<leader>gdm", "<cmd>DiffviewOpen origin/main...<cr>", { desc = "Open Diffview against origin/main" })
 keymap("n", "<leader>gD", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
 
--- Fugitive
-keymap("n", "<leader>gg", "<cmd>Git<cr>", { desc = "Open Git status" })

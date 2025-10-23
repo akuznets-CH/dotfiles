@@ -19,6 +19,18 @@ return {
                     luasnip.lsp_expand(args.body)
                 end,
             },
+            window = {
+                completion = {
+                    border = "rounded",
+                    winhighlight = "Normal:Pmenu,FloatBorder:Pmenu",
+                    max_width = 120,
+                },
+                documentation = {
+                    border = "rounded",
+                    max_width = 120,
+                    max_height = 30,
+                },
+            },
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
