@@ -6,9 +6,9 @@
 set -e
 session=$(tmux list-sessions -F '#S' | fzf \
     --reverse \
-    --bind 'ctrl-k:execute(tmux kill-session -t {})' \
-    --bind 'ctrl-k:+reload(tmux list-sessions -F "#S")' \
-    --header 'Choose session (Ctrl-K to kill)')
+    --bind 'ctrl-x:execute(tmux kill-session -t {})' \
+    --bind 'ctrl-x:+reload(tmux list-sessions -F "#S")' \
+    --header 'Choose session (Ctrl-X to kill)')
 
 # If we're not already in a tmux session, attach to the selected session.
 # Otherwise, switch to it.
