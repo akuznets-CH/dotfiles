@@ -17,11 +17,11 @@ setup-mac:
 		else \
 		echo "Homebrew is already installed."; \
 		fi
-	@echo "Installing nvim, luacheck, and stylua..."
-	@brew install nvim luacheck stylua
+	echo "Installing luacheck and stylua"
+	@brew install luacheck stylua
 
 lint:
-	@echo "Linting with luacheck..."
+	@echo "Linting with luacheck."
 	@luacheck .
 	@echo "Done."
 
@@ -29,9 +29,9 @@ TEXT_FILES := $(shell find . -type f -not -path "./.git/*" -exec sh -c 'file -b 
 
 
 format:
-	@echo "Formatting with stylua..."
+	@echo "Formatting with stylua."
 	@stylua .
-	@echo "Adding trailing newline to text files..."
+	@echo "Adding trailing newline to text files."
 	@for file in $(TEXT_FILES); do \
 		if [ -n "$(tail -c 1 \"$file\")" ]; then \
 			echo "" >> \"$file\"; \

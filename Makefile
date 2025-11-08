@@ -4,22 +4,21 @@ all: help
 
 help:
 	@echo "Available commands:"
-	@echo "  make setup-mac       - Runs delete-symlinks, brew-install, and symlink in order."
-	@echo "  make symlink         - Creates symlinks for dotfiles."
-	@echo "  make delete-symlinks - Deletes existing symlinks and files/folders created by symlink.sh."
-	@echo "  make brew-install    - Installs nvim, ghostty, and tmux using Homebrew."
+	@echo "  make setup-mac         # Run full mac setup (brew, symlinks)"
+	@echo "  make symlink           # Create all dotfile symlinks"
+	@echo "  make delete-symlinks   # Delete all dotfile symlinks"
+	@echo "  make brew-install      # Install homebrew packages"
 
-setup-mac: delete-symlinks brew-install symlink
-	@echo "All setup tasks completed."
+
+setup-mac: brew-install symlink
+	@echo "Mac setup complete."
 
 symlink:
-	@echo "Running symlink script..."
-	./scripts/symlink.sh
+	bash ./setup/mac/symlink.sh
 
 delete-symlinks:
-	@echo "Running delete symlinks script..."
-	./scripts/delete-symlinks.sh
+	bash ./setup/mac/symlink.sh --delete
 
 brew-install:
-	@echo "Running brew install script..."
-	./scripts/brew-install.sh
+	bash ./setup/mac/homebrew.sh
+
