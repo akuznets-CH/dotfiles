@@ -1,24 +1,17 @@
 ## First-Time Setup
 
 Run the following command in the root of this repository:
-
 ```bash
 make setup-mac
 ```
 
 This will:
 1.  Delete any existing symlinks or files that would conflict with the dotfiles.
-2.  Install homebrew, neovim, tmux, and ghostty.
-3.  Create symlinks in the home directory.
+2.  Install homebrew, neovim, tmux, ghostty, and other packages.
+3.  Create symlinks to dotfiles.
 
 ## GitHub Copilot Authentication
-
-1.  Open Neovim:
-    ```bash
-    nvim
-    ```
-2.  Once Neovim is open, run the following command:
+2.  In Neovim, run:
     ```
     :Copilot auth
     ```
-    This will open a browser window to authenticate with GitHub.

@@ -1,8 +1,12 @@
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-if [[ -d "$HOME/.local/bin" && ! ("$path"[(Ie)"$HOME/.local/bin"]) ]]; then
-    path=("$HOME/.local/bin" $path)
+# Add ~/.local/bin to the PATH if it exists and is not already there
+if [ -d "$HOME/.local/bin" ]; then
+  case ":$PATH:" in
+    *":$HOME/.local/bin:"*) ;;
+    *) export PATH="$HOME/.local/bin:$PATH" ;;
+  esac
 fi
 
 [ -f /opt/homebrew/opt/fzf/shell/completion.zsh ] && source /opt/homebrew/opt/fzf/shell/completion.zsh
