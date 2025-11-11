@@ -13,3 +13,8 @@ fi
 [ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ] && source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 
 autoload -U compinit && compinit
+
+# Check if a local zshrc file exists and is readable, then source it
+if [[ -r ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
