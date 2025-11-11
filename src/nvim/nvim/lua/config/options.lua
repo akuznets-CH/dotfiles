@@ -28,4 +28,4 @@ vim.o.expandtab = true
 vim.o.softtabstop = 4
 
 -- Open new vertical splits to the right
-vim.opt.splitright = true
+vim.o.splitright = true
