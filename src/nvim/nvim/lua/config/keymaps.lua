@@ -1,4 +1,4 @@
-local keymap = vim.keymap.set
+    local keymap = vim.keymap.set
 
 -- Clipboard
 keymap("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
@@ -30,9 +30,13 @@ keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" 
 keymap("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Search commands" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 keymap("n", "<leader>xx", "<cmd>Telescope diagnostics<cr>", { desc = "Show workspace diagnostics" })
+keymap("n", "<leader>wk", "<cmd>WhichKey<cr>", { desc = "Which key" })
 
 -- NvimTree
 keymap("n", "<leader>o", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
+keymap("n", "<leader>i", "<cmd>NvimTreeResize 50<cr>", { desc = "Reset file explorer width" })
+keymap("n", "<leader>O", "<cmd>NvimTreeResize +20<cr>", { desc = "Increase file explorer width" })
+keymap("n", "<leader>I", "<cmd>NvimTreeResize -20<cr>", { desc = "Decrease file explorer width" })
 
 -- LSP
 keymap("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
