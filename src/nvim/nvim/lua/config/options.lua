@@ -29,3 +29,6 @@ vim.o.softtabstop = 4
 
 -- Open new vertical splits to the right
 vim.o.splitright = true
+
+-- Automatically reload files changed outside of Neovim
+vim.o.autoread = true
