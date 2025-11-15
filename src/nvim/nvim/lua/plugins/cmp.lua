@@ -23,12 +23,12 @@ return {
                 completion = {
                     border = "rounded",
                     winhighlight = "Normal:Pmenu,FloatBorder:Pmenu",
-                    max_width = 120,
+                    max_width = 160,
                 },
                 documentation = {
                     border = "rounded",
                     max_width = 120,
-                    max_height = 30,
+                    max_height = 80,
                 },
             },
             sources = cmp.config.sources({
