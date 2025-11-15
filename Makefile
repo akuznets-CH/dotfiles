@@ -21,7 +21,7 @@ uninstall-mac:
 symlink-mac:
 	@mkdir -p "$(HOME)/.config"
 	@mkdir -p "$(HOME)/.local/bin"
-	@mkdir -p "@(HOME)/Library/Application Support/lazygit"
+	@mkdir -p "$(HOME)/Library/Application Support/lazygit"
 
 	@ln -sfnv "$(PWD)/src/ghostty/ghostty"    "$(HOME)/.config/ghostty"
 	@ln -sfnv "$(PWD)/src/nvim/nvim"          "$(HOME)/.config/nvim"
