@@ -1,7 +1,5 @@
 .PHONY: all setup-mac symlink-mac uninstall-mac install-mac help
 
-COMPONENTS = $(wildcard src/*)
-
 all: setup-mac
 
 help:
@@ -15,16 +13,20 @@ setup-mac: install-mac symlink-mac
 	@echo "Mac setup complete."
 
 install-mac:
-	-@for component in $(COMPONENTS); do \
-		$(MAKE) -C $$component install-mac; \
-	done
+	@brew install tmux fzf nvim ghostty
 
 uninstall-mac:
-	-@for component in $(COMPONENTS); do \
-		$(MAKE) -C $$component uninstall-mac; \
-	done
+	@brew uninstall tmux fzf nvim ghostty
 
 symlink-mac:
-	-@for component in $(COMPONENTS); do \
-		$(MAKE) -C $$component symlink-mac; \
-	done
+	@mkdir -p "$(HOME)/.config"
+	@mkdir -p "$(HOME)/.local/bin"
+	@mkdir -p "@(HOME)/Library/Application Support/lazygit"
+
+	@ln -sfnv "$(PWD)/src/ghostty/ghostty"    "$(HOME)/.config/ghostty"
+	@ln -sfnv "$(PWD)/src/nvim/nvim"          "$(HOME)/.config/nvim"
+	@ln -sfnv "$(PWD)/src/tmux/.tmux.conf"    "$(HOME)/.tmux.conf"
+	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"     "$(HOME)/.local/bin/tscope"
+	@ln -sfnv "$(PWD)/src/vim/.vimrc"         "$(HOME)/.vimrc"
+	@ln -sfnv "$(PWD)/src/zsh/.zshrc"         "$(HOME)/.zshrc"
+	@ln -sfnv "$(PWD)/src/lazygit/config.yml" "$(HOME)/Library/Application Support/lazygit/config.yml"
