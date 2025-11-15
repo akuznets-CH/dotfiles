@@ -3,7 +3,7 @@
 sessions=$(tmux list-sessions -F '#S' 2>/dev/null || true)
 
 session=$(echo "$sessions" | fzf --reverse \
-    --header 'Choose or create session (Ctrl-X to kill)' \
+    --header 'Choose session (Ctrl-X to kill)' \
     --bind 'ctrl-x:execute(tmux kill-session -t {})+reload(tmux list-sessions -F "#S" || true)' \
     --prompt="> ")
 
