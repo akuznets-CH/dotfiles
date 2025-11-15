@@ -26,3 +26,4 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 vnoremap <leader>y "+y
 nnoremap <leader>p "+p
+vnoremap <leader>p "+p
