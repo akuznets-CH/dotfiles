@@ -13,7 +13,7 @@ install_homebrew() {
 install_homebrew
 
 echo "Installing packages."
-brew install nvim tmux fzf
+brew install nvim tmux fzf lazygit
 brew install --cask ghostty
 
 echo "Installation complete."

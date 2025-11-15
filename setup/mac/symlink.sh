@@ -14,6 +14,7 @@ SOURCES=(
     "src/vim/.vimrc"
     "src/zsh/.zshrc"
     "src/tmux/tscope.sh"
+    "src/lazygit/config.yml"
 )
 
 DESTINATIONS=(
@@ -23,6 +24,7 @@ DESTINATIONS=(
     "$HOME/.vimrc"
     "$HOME/.zshrc"
     "$HOME/.local/bin/tscope"
+    "$HOME/Library/Application Support/lazygit/config.yml"
 )
 
 delete_targets() {
