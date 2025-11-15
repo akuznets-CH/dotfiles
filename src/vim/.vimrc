@@ -7,9 +7,7 @@ set number
 set relativenumber
 set ignorecase
 set smartcase
-set cursorline
 set scrolloff=10
-set list
 set confirm
 set tabstop=4
 set shiftwidth=4
