@@ -1,5 +1,3 @@
-vim.lsp.set_log_level("warn")
-
 return {
     -- Mason: LSP installer
     {

@@ -1,14 +1,18 @@
-.PHONY: all help install lint format
+.PHONY: all help install-mac uninstall-mac symlink-mac lint format
 
 all: help
 
 help:
 	@echo "Available commands:"
-	@echo "  setup-mac - Installs dependencies (nvim, luacheck, stylua) using homebrew."
+	@echo "  install-mac - Installs dependencies (nvim, luacheck, stylua) using homebrew."
+	@echo "  uninstall-mac - Uninstalls nvim."
+	@echo "  symlink-mac - Creates symlinks for nvim."
 	@echo "  lint    - Lints Lua files using luacheck."
 	@echo "  format  - Formats Lua files using stylua."
 
-setup-mac:
+install-mac:
+	@echo "Installing nvim..."
+	@bash setup/mac/install.sh
 	@echo "Checking for Homebrew..."
 	@if ! command -v brew &> /dev/null; then \
 		echo "Homebrew not found. Installing Homebrew..."; \
@@ -19,6 +23,14 @@ setup-mac:
 		fi
 	echo "Installing luacheck and stylua"
 	@brew install luacheck stylua
+
+uninstall-mac:
+	@echo "Uninstalling nvim..."
+	@bash setup/mac/uninstall.sh
+
+symlink-mac:
+	@echo "Symlinking nvim..."
+	@bash setup/mac/symlink.sh
 
 lint:
 	@echo "Linting with luacheck."
@@ -33,8 +45,8 @@ format:
 	@stylua .
 	@echo "Adding trailing newline to text files."
 	@for file in $(TEXT_FILES); do \
-		if [ -n "$(tail -c 1 \"$file\")" ]; then \
-			echo "" >> \"$file\"; \
+		if [ -n "$(tail -c 1 \"$$file\")" ]; then \
+			echo "" >> \"$$file\"; \
 		fi; \
 	done
 	@echo "Done."
