@@ -13,6 +13,7 @@ setup-mac: install-mac symlink-mac
 	@echo "Mac setup complete."
 
 install-mac:
+	$(BREW_INSTALL_GUARD)
 	@brew install tmux fzf nvim ghostty lazygit
 
 uninstall-mac:
@@ -30,3 +31,10 @@ symlink-mac:
 
 	@mkdir -p "$(HOME)/.local/bin"
 	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"  "$(HOME)/.local/bin/tscope"
+
+define BREW_INSTALL_GUARD
+@command -v brew >/dev/null 2>&1 || ( \
+	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
+	exit 1; \
+)
+endef
