@@ -13,20 +13,20 @@ setup-mac: install-mac symlink-mac
 	@echo "Mac setup complete."
 
 install-mac:
-	@brew install tmux fzf nvim ghostty
+	@brew install tmux fzf nvim ghostty lazygit
 
 uninstall-mac:
-	@brew uninstall tmux fzf nvim ghostty
+	@brew uninstall tmux fzf nvim ghostty lazygit
 
 symlink-mac:
-	@mkdir -p "$(HOME)/.config"
-	@mkdir -p "$(HOME)/.local/bin"
-	@mkdir -p "$(HOME)/Library/Application Support/lazygit"
+	@ln -sfnv "$(PWD)/src/zsh/.zshrc"      "$(HOME)/.zshrc"
+	@ln -sfnv "$(PWD)/src/vim/.vimrc"      "$(HOME)/.vimrc"
+	@ln -sfnv "$(PWD)/src/tmux/.tmux.conf" "$(HOME)/.tmux.conf"
 
-	@ln -sfnv "$(PWD)/src/ghostty/ghostty"    "$(HOME)/.config/ghostty"
-	@ln -sfnv "$(PWD)/src/nvim/nvim"          "$(HOME)/.config/nvim"
-	@ln -sfnv "$(PWD)/src/tmux/.tmux.conf"    "$(HOME)/.tmux.conf"
-	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"     "$(HOME)/.local/bin/tscope"
-	@ln -sfnv "$(PWD)/src/vim/.vimrc"         "$(HOME)/.vimrc"
-	@ln -sfnv "$(PWD)/src/zsh/.zshrc"         "$(HOME)/.zshrc"
-	@ln -sfnv "$(PWD)/src/lazygit/config.yml" "$(HOME)/Library/Application Support/lazygit/config.yml"
+	@mkdir -p "$(HOME)/.config"
+	@ln -sfnv "$(PWD)/src/nvim/nvim"       "$(HOME)/.config/nvim"
+	@ln -sfnv "$(PWD)/src/ghostty/ghostty" "$(HOME)/.config/ghostty"
+	@ln -sfnv "$(PWD)/src/lazygit/lazygit" "$(HOME)/.config/lazygit"
+
+	@mkdir -p "$(HOME)/.local/bin"
+	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"  "$(HOME)/.local/bin/tscope"
