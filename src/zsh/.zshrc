@@ -3,6 +3,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+alias uvim='uv run nvim'
+
 # Add ~/.local/bin to the PATH if it exists and is not already there
 if [ -d "$HOME/.local/bin" ]; then
   case ":$PATH:" in
