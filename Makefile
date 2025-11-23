@@ -1,4 +1,4 @@
-.PHONY: all setup-mac symlink-mac uninstall-mac install-mac help
+.PHONY: all setup-mac symlink-mac install-mac help
 
 all: setup-mac
 
@@ -6,7 +6,6 @@ help:
 	@echo "Available commands:"
 	@echo "  make setup-mac         # Run full mac setup (brew, symlinks)"
 	@echo "  make install-mac       # Install all components for mac"
-	@echo "  make uninstall-mac     # Uninstall all components for mac"
 	@echo "  make symlink-mac       # Symlink all components for mac"
 
 setup-mac: install-mac symlink-mac
