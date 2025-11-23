@@ -14,10 +14,7 @@ setup-mac: install-mac symlink-mac
 
 install-mac:
 	$(BREW_INSTALL_GUARD)
-	@brew install tmux fzf nvim ghostty lazygit
-
-uninstall-mac:
-	@brew uninstall tmux fzf nvim ghostty lazygit
+	@brew install tmux rg fzf nvim ghostty git lazygit uv fnm go
 
 symlink-mac:
 	@ln -sfnv "$(PWD)/src/zsh/.zshrc"      "$(HOME)/.zshrc"
