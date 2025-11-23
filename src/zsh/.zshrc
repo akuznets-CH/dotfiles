@@ -16,7 +16,10 @@ fi
 
 autoload -U compinit && compinit
 
-# Check if a local zshrc file exists and is readable, then source it
+eval "$(uv generate-shell-completion zsh)"
+
+eval "$(fnm env --use-on-cd)"
+
 if [[ -r ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
