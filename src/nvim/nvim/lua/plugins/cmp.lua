@@ -58,7 +58,7 @@ return {
                         fallback()
                     end
                 end, { "i", "s" }),
-                ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+                ["<C-y>"] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             },
         })

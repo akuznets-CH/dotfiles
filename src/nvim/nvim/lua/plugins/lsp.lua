@@ -29,22 +29,17 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "bashls",
                     "dockerls",
-                    "docker_compose_language_service",
                     "gopls",
-                    "marksman",
-                    "pyright",
-                    "rust_analyzer",
+                    "basedpyright",
                     "sqlls",
-                    "taplo",
-                    "lemminx",
                     "yamlls",
                     "ts_ls",
-                    "clangd",
                     "html",
                     "cssls",
+                    "tailwindcss",
                     "jsonls",
+                    "terraformls"
                 },
                 handlers = {
                     function(server_name)
