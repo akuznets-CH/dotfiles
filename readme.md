@@ -7,5 +7,5 @@ make setup-mac
 ## GitHub Copilot Authentication
 In Neovim:
 ```
-:Copilot auth
+:Copilot setup
 ```
