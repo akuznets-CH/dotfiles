@@ -31,7 +31,7 @@ return {
                     "lua_ls",
                     "dockerls",
                     "gopls",
-                    "basedpyright",
+                    "pyright",
                     "sqlls",
                     "yamlls",
                     "ts_ls",
