@@ -16,14 +16,15 @@ install-mac:
 	@brew install tmux rg fzf nvim ghostty git lazygit uv fnm go
 
 symlink-mac:
-	@ln -sfnv "$(PWD)/src/zsh/.zshrc"      "$(HOME)/.zshrc"
-	@ln -sfnv "$(PWD)/src/vim/.vimrc"      "$(HOME)/.vimrc"
-	@ln -sfnv "$(PWD)/src/tmux/.tmux.conf" "$(HOME)/.tmux.conf"
+	@ln -sfnv "$(PWD)/src/zsh/.zshrc"            "$(HOME)/.zshrc"
+	@ln -sfnv "$(PWD)/src/vim/.vimrc"            "$(HOME)/.vimrc"
+	@ln -sfnv "$(PWD)/src/tmux/.tmux.conf"       "$(HOME)/.tmux.conf"
 
 	@mkdir -p "$(HOME)/.config"
-	@ln -sfnv "$(PWD)/src/nvim/nvim"       "$(HOME)/.config/nvim"
-	@ln -sfnv "$(PWD)/src/ghostty/ghostty" "$(HOME)/.config/ghostty"
-	@ln -sfnv "$(PWD)/src/lazygit/lazygit" "$(HOME)/.config/lazygit"
+	@ln -sfnv "$(PWD)/src/nvim/nvim"             "$(HOME)/.config/nvim"
+	@ln -sfnv "$(PWD)/src/ghostty/ghostty"       "$(HOME)/.config/ghostty"
+	@ln -sfnv "$(PWD)/src/lazygit/lazygit"       "$(HOME)/.config/lazygit"
+	@ln -sfnv "$(PWD)/src/lazydocker/lazydocker" "$(HOME)/.config/lazydocker"
 
 	@mkdir -p "$(HOME)/.local/bin"
 	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"  "$(HOME)/.local/bin/tscope"
