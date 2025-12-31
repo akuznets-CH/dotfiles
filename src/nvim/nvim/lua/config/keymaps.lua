@@ -1,4 +1,4 @@
-    local keymap = vim.keymap.set
+local keymap = vim.keymap.set
 
 -- Clipboard
 keymap("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
@@ -23,6 +23,9 @@ keymap({ "n" }, "<C-j>", "<C-w>j")
 keymap({ "n" }, "<C-k>", "<C-w>k")
 keymap({ "n" }, "<C-l>", "<C-w>l")
 
+-- WhichKey
+keymap("n", "<leader>wk", "<cmd>WhichKey<cr>", { desc = "Show which-key" })
+
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
@@ -31,14 +34,13 @@ keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" 
 keymap("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Search commands" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 keymap("n", "<leader>fm", "<cmd>Telescope git_status<cr>", { desc = "Find git modified files" })
-keymap("n", "<leader>xx", "<cmd>Telescope diagnostics<cr>", { desc = "Show workspace diagnostics" })
-keymap("n", "<leader>wk", "<cmd>WhichKey<cr>", { desc = "Which key" })
+keymap("n", "<leader>fx", "<cmd>Telescope diagnostics<cr>", { desc = "Show workspace diagnostics" })
+keymap("n", "<leader>fr", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
+keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Recent files" })
+keymap("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Document symbols" })
 
--- NvimTree
-keymap("n", "<leader>o", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file explorer" })
-keymap("n", "<leader>i", "<cmd>NvimTreeResize 50<cr>", { desc = "Reset file explorer width" })
-keymap("n", "<leader>O", "<cmd>NvimTreeResize +20<cr>", { desc = "Increase file explorer width" })
-keymap("n", "<leader>I", "<cmd>NvimTreeResize -20<cr>", { desc = "Decrease file explorer width" })
+-- Oil
+keymap("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 
 -- LSP
 keymap("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
@@ -56,8 +58,8 @@ keymap("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 keymap("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 keymap("n", "gr", vim.lsp.buf.references, { desc = "Go to references" })
 keymap("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostics" })
-keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
-keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+keymap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end)
+keymap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end)
 keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Set loclist" })
 
 -- Gitsigns
@@ -68,6 +70,9 @@ keymap("n", "<leader>gsr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Preview hun
 keymap("n", "<leader>gsn", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next hunk" })
 keymap("n", "<leader>gsN", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk" })
 keymap("n", "<leader>gsS", "<cmd>Gitsigns stage_buffer<cr>", { desc = "Stage buffer" })
+keymap("n", "<leader>gsb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })
+keymap("n", "<leader>gsd", "<cmd>Gitsigns diffthis<cr>", { desc = "Diff this" })
+keymap("n", "<leader>gst", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Toggle line blame" })
 
 -- Terminal
 local terminal_buf = nil
