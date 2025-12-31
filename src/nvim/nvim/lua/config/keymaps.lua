@@ -30,6 +30,7 @@ keymap("n", "<leader>fw", "<cmd>Telescope grep_string<cr>", { desc = "Search wor
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
 keymap("n", "<leader>fc", "<cmd>Telescope commands<cr>", { desc = "Search commands" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
+keymap("n", "<leader>fm", "<cmd>Telescope git_status<cr>", { desc = "Find git modified files" })
 keymap("n", "<leader>xx", "<cmd>Telescope diagnostics<cr>", { desc = "Show workspace diagnostics" })
 keymap("n", "<leader>wk", "<cmd>WhichKey<cr>", { desc = "Which key" })
 

@@ -27,20 +27,6 @@ return {
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls",
-                    "dockerls",
-                    "gopls",
-                    "pyright",
-                    "sqlls",
-                    "yamlls",
-                    "ts_ls",
-                    "html",
-                    "cssls",
-                    "tailwindcss",
-                    "jsonls",
-                    "terraformls"
-                },
                 handlers = {
                     function(server_name)
                         require("lspconfig")[server_name].setup({
