@@ -4,6 +4,7 @@ local keymap = vim.keymap.set
 keymap("v", "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 keymap("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 keymap("v", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+keymap("n", "<leader>@", ':let @+=expand("%:p")<CR>', { desc = "Copy current file path to clipboard" })
 
 -- Use <Esc> to exit terminal mode
 keymap("t", "<Esc>", function()
