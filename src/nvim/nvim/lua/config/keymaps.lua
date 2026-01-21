@@ -48,7 +48,7 @@ keymap("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 keymap("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 keymap("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
 keymap("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
-keymap("n", "<leader>sh", vim.lsp.buf.signature_help, { desc = "Signature help" })
+keymap("n", "<leader>sk", vim.lsp.buf.signature_help, { desc = "Signature help" })
 keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "Add workspace folder" })
 keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, { desc = "Remove workspace folder" })
 keymap("n", "<leader>wl", function()
@@ -127,3 +127,32 @@ local function toggle_floating_terminal()
 end
 
 keymap("n", "<leader>ft", toggle_floating_terminal, { desc = "Toggle floating terminal" })
+
+-- Splits
+keymap("n", "<leader>sv", "<C-w>v", { desc = "Split vertical" })
+keymap("n", "<leader>sh", "<C-w>s", { desc = "Split horizontal" })
+keymap("n", "<leader>se", "<C-w>=", { desc = "Equalize splits" })
+keymap("n", "<leader>sx", "<cmd>close<cr>", { desc = "Close split" })
+
+-- Resize splits
+keymap("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase height" })
+keymap("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease height" })
+keymap("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease width" })
+keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase width" })
+
+-- Buffers
+keymap("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+keymap("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
+
+-- Harpoon
+local harpoon = require("harpoon")
+keymap("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Harpoon add file" })
+keymap("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon menu" })
+keymap("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
+keymap("n", "<leader>2", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
+keymap("n", "<leader>3", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
+keymap("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+keymap("n", "<leader>5", function() harpoon:list():select(5) end, { desc = "Harpoon file 5" })
+keymap("n", "<leader>hp", function() harpoon:list():prev() end, { desc = "Harpoon prev" })
+keymap("n", "<leader>hn", function() harpoon:list():next() end, { desc = "Harpoon next" })
