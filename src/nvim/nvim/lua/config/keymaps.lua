@@ -75,6 +75,13 @@ keymap("n", "<leader>gsb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line"
 keymap("n", "<leader>gsd", "<cmd>Gitsigns diffthis<cr>", { desc = "Diff this" })
 keymap("n", "<leader>gst", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Toggle line blame" })
 
+-- Fugitive
+keymap("n", "<leader>gg", "<cmd>Git<cr>", { desc = "Git status (fugitive)" })
+keymap("n", "<leader>gd", "<cmd>Gvdiffsplit<cr>", { desc = "Diff current file vs index" })
+keymap("n", "<leader>gD", "<cmd>Git difftool -y origin/main...HEAD<cr>", { desc = "Diff branch vs main (PR review)" })
+keymap("n", "<leader>gl", "<cmd>Git log --oneline<cr>", { desc = "Git log" })
+keymap("n", "<leader>gb", "<cmd>Git blame<cr>", { desc = "Git blame" })
+
 -- Terminal
 local terminal_buf = nil
 local terminal_win = nil
