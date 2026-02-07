@@ -1,1 +1,5 @@
 theme = Rose Pine
+
+font-feature = -liga
+font-feature = -calt
+font-feature = -clig

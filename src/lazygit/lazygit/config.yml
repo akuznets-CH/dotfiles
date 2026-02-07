@@ -15,7 +15,7 @@ gui:
       - "#9ccfd8"
 
     selectedLineBgColor:
-      - "#21202e"
+      - "#1f1d2e"
 
     inactiveViewSelectedLineBgColor:
       - "#26233a"

@@ -9,6 +9,9 @@ vim.o.relativenumber = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- Disable line wrapping
+vim.o.wrap = false
+
 -- Highlight the line where the cursor is on
 vim.o.cursorline = true
 
@@ -18,7 +21,7 @@ vim.o.scrolloff = 10
 -- Show <tab> and trailing spaces
 vim.o.list = true
 
--- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- If performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s) See `:help 'confirm'`
 vim.o.confirm = true
 
@@ -32,3 +35,9 @@ vim.o.splitright = true
 
 -- Automatically reload files changed outside of Neovim
 vim.o.autoread = true
+
+-- Persistent undo across sessions
+vim.o.undofile = true
+
+-- Prevent layout shift from diagnostics
+vim.o.signcolumn = "yes"
