@@ -3,5 +3,3 @@ theme = Rose Pine
 font-feature = -liga
 font-feature = -calt
 font-feature = -clig
-
-window-title-xterm-enable = false
