@@ -26,6 +26,7 @@ symlink-mac:
 
 	@mkdir -p "$(HOME)/.local/bin"
 	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"     "$(HOME)/.local/bin/tscope"
+	@ln -sfnv "$(PWD)/src/tmux/wtscope.sh"    "$(HOME)/.local/bin/wtscope"
 
 define BREW_INSTALL_GUARD
 @command -v brew >/dev/null 2>&1 || ( \
