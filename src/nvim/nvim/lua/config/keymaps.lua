@@ -43,6 +43,24 @@ keymap("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "D
 -- Oil
 keymap("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 
+local oil_sort_by_mtime = false
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "oil",
+    callback = function(args)
+        keymap("n", "sm", function()
+            local oil = require("oil")
+            oil_sort_by_mtime = not oil_sort_by_mtime
+            if oil_sort_by_mtime then
+                oil.set_sort({ { "type", "asc" }, { "mtime", "desc" } })
+                vim.notify("Oil: sorted by mtime (newest first)", vim.log.levels.INFO)
+            else
+                oil.set_sort({ { "type", "asc" }, { "name", "asc" } })
+                vim.notify("Oil: sorted by name", vim.log.levels.INFO)
+            end
+        end, { buffer = args.buf, desc = "Toggle sort by mtime" })
+    end,
+})
+
 -- LSP
 keymap("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 keymap("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })

@@ -9,6 +9,10 @@ return {
                 -- Show hidden files
                 show_hidden = true,
             },
+            columns = {
+                "icon",
+                "mtime",
+            }
         })
     end,
 }
