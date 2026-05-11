@@ -10,8 +10,8 @@ return {
                 show_hidden = true,
             },
             columns = {
-                "icon",
                 "mtime",
+                "icon",
             }
         })
     end,
