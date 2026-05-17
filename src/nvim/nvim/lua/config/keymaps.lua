@@ -24,9 +24,6 @@ keymap({ "n" }, "<C-j>", "<C-w>j")
 keymap({ "n" }, "<C-k>", "<C-w>k")
 keymap({ "n" }, "<C-l>", "<C-w>l")
 
--- WhichKey
-keymap("n", "<leader>wk", "<cmd>WhichKey<cr>", { desc = "Show which-key" })
-
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })

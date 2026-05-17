@@ -24,7 +24,6 @@ local order = {
     "cmp",
     "gitsigns",
     "fugitive",
-    "which-key",
 }
 
 local modules = {}
