@@ -1,9 +1,12 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "main",
-    lazy = false,
-    build = ":TSUpdate",
-    config = function()
+    src = "https://github.com/nvim-treesitter/nvim-treesitter",
+    version = "main",
+    build = function(event)
+        if event.data.kind == "update" then
+            pcall(vim.cmd, "TSUpdate")
+        end
+    end,
+    setup = function()
         local ts = require("nvim-treesitter")
 
         ts.setup({

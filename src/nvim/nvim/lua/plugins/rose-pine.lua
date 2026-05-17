@@ -1,7 +1,7 @@
 return {
-    "rose-pine/neovim",
+    src = "https://github.com/rose-pine/neovim",
     name = "rose-pine",
-    config = function()
+    setup = function()
         require("rose-pine").setup({
             styles = {
                 italic = false,

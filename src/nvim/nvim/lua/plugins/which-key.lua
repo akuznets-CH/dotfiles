@@ -1,9 +1,7 @@
 return {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = function()
-        local wk = require("which-key")
-        wk.setup({
+    src = "https://github.com/folke/which-key.nvim",
+    setup = function()
+        require("which-key").setup({
             delay = 1000,
         })
     end,

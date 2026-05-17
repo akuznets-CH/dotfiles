@@ -1,14 +1,13 @@
 return {
-    "hrsh7th/nvim-cmp",
-    event = "VeryLazy",
-    dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
+    src = "https://github.com/hrsh7th/nvim-cmp",
+    deps = {
+        "https://github.com/hrsh7th/cmp-nvim-lsp",
+        "https://github.com/hrsh7th/cmp-buffer",
+        "https://github.com/hrsh7th/cmp-path",
+        "https://github.com/L3MON4D3/LuaSnip",
+        "https://github.com/saadparwaiz1/cmp_luasnip",
     },
-    config = function()
+    setup = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
 

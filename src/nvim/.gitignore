@@ -1,6 +1,3 @@
-# Managed by lazy.nvim
-lazy-lock.json
-
 # Swap and backup files
 *.swp
 *.swo
