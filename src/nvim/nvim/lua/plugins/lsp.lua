@@ -1,40 +1,21 @@
 return {
-    -- Mason: LSP installer
-    {
-        "williamboman/mason.nvim",
-        event = "VeryLazy",
-        config = function()
-            require("mason").setup()
-        end,
+    src = "https://github.com/williamboman/mason-lspconfig.nvim",
+    deps = {
+        "https://github.com/williamboman/mason.nvim",
+        "https://github.com/neovim/nvim-lspconfig",
+        "https://github.com/hrsh7th/cmp-nvim-lsp",
     },
-
-    -- nvim-lspconfig: LSP client
-    {
-        "neovim/nvim-lspconfig",
-        event = "VeryLazy",
-        dependencies = { "williamboman/mason.nvim" },
-    },
-
-    -- mason-lspconfig: Bridges Mason and nvim-lspconfig
-    {
-        "williamboman/mason-lspconfig.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            "williamboman/mason.nvim",
-            "hrsh7th/cmp-nvim-lsp",
-        },
-        config = function()
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            require("mason-lspconfig").setup({
-                handlers = {
-                    function(server_name)
-                        require("lspconfig")[server_name].setup({
-                            capabilities = capabilities,
-                        })
-                    end,
-                },
-            })
-        end,
-    },
+    setup = function()
+        require("mason").setup()
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        require("mason-lspconfig").setup({
+            handlers = {
+                function(server_name)
+                    require("lspconfig")[server_name].setup({
+                        capabilities = capabilities,
+                    })
+                end,
+            },
+        })
+    end,
 }

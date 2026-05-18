@@ -1,35 +1,52 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-        require("nvim-treesitter.configs").setup({
-            ensure_installed = {
-                "c",
-                "lua",
-                "vim",
-                "vimdoc",
-                "query",
-                "javascript",
-                "typescript",
-                "rust",
-                "go",
-                "python",
-                "html",
-                "bash",
-                "css",
-                "dockerfile",
-                "json",
-                "markdown",
-                "sql",
-                "toml",
-                "yaml",
-            },
-            sync_install = false,
-            auto_install = true,
-            highlight = {
-                enable = true,
-            },
-            indent = { enable = true },
+    src = "https://github.com/nvim-treesitter/nvim-treesitter",
+    version = "main",
+    build = function(event)
+        if event.data.kind == "update" then
+            pcall(vim.cmd, "TSUpdate")
+        end
+    end,
+    setup = function()
+        local ts = require("nvim-treesitter")
+
+        ts.setup({
+            install_dir = vim.fn.stdpath("data") .. "/site",
+        })
+
+        ts.install({
+            "bash",
+            "lua",
+            "markdown",
+            "markdown_inline",
+            "query",
+            "vim",
+            "vimdoc",
+        })
+
+        local function enable(buf, lang)
+            pcall(vim.treesitter.start, buf, lang)
+        end
+
+        local installed = {}
+        for _, p in ipairs(ts.get_installed("parsers")) do installed[p] = true end
+
+        vim.api.nvim_create_autocmd("FileType", {
+            callback = function(args)
+                local lang = vim.treesitter.language.get_lang(args.match) or args.match
+                if not lang or lang == "" then return end
+
+                if installed[lang] then
+                    enable(args.buf, lang)
+                    return
+                end
+
+                if not require("nvim-treesitter.parsers")[lang] then return end
+
+                ts.install({ lang }):await(vim.schedule_wrap(function()
+                    installed[lang] = true
+                    enable(args.buf, lang)
+                end))
+            end,
         })
     end,
 }

@@ -1,7 +1,6 @@
 return {
-    "lewis6991/gitsigns.nvim",
-    event = "VeryLazy",
-    config = function()
+    src = "https://github.com/lewis6991/gitsigns.nvim",
+    setup = function()
         require("gitsigns").setup({
             signs = {
                 add = { text = "┃" },

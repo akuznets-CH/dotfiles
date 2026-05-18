@@ -1,10 +1,7 @@
 return {
-    "nvim-telescope/telescope.nvim",
-    event = "VeryLazy",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-    },
-    config = function()
+    src = "https://github.com/nvim-telescope/telescope.nvim",
+    deps = { "https://github.com/nvim-lua/plenary.nvim" },
+    setup = function()
         require("telescope").setup({
             pickers = {
                 find_files = {
