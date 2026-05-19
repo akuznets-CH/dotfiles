@@ -15,10 +15,19 @@ return {
 
         ts.install({
             "bash",
+            "comment",
+            "jsdoc",
             "lua",
+            "luadoc",
+            "luap",
             "markdown",
             "markdown_inline",
+            "python",
             "query",
+            "regex",
+            "rust",
+            "tsx",
+            "typescript",
             "vim",
             "vimdoc",
         })
