@@ -1,6 +1,9 @@
 return {
     src = "https://github.com/nvim-telescope/telescope.nvim",
-    deps = { "https://github.com/nvim-lua/plenary.nvim" },
+    deps = {
+        "https://github.com/nvim-lua/plenary.nvim",
+        "https://github.com/nvim-tree/nvim-web-devicons",
+    },
     setup = function()
         require("telescope").setup({
             pickers = {
