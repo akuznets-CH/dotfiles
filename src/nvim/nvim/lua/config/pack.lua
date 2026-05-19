@@ -21,7 +21,6 @@ local order = {
     "telescope",
     "treesitter",
     "lsp",
-    "cmp",
     "gitsigns",
     "fugitive",
 }
