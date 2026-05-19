@@ -13,7 +13,7 @@ setup-mac: install-mac symlink-mac
 
 install-mac:
 	$(BREW_INSTALL_GUARD)
-	@brew install tmux rg fzf nvim ghostty git
+	@brew bundle --file="$(PWD)/Brewfile"
 
 symlink-mac:
 	@ln -sfnv "$(PWD)/src/zsh/.zshrc"         "$(HOME)/.zshrc"

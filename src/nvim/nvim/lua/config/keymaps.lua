@@ -78,6 +78,15 @@ keymap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end)
 keymap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end)
 keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Set loclist" })
 
+-- Completion (vim.lsp.completion + vim.snippet)
+keymap("i", "<C-Space>", function() vim.lsp.completion.get() end, { desc = "Trigger LSP completion" })
+keymap({ "i", "s" }, "<Tab>", function()
+    return vim.snippet.active({ direction = 1 }) and "<Cmd>lua vim.snippet.jump(1)<CR>" or "<Tab>"
+end, { expr = true, desc = "Jump to next snippet placeholder" })
+keymap({ "i", "s" }, "<S-Tab>", function()
+    return vim.snippet.active({ direction = -1 }) and "<Cmd>lua vim.snippet.jump(-1)<CR>" or "<S-Tab>"
+end, { expr = true, desc = "Jump to previous snippet placeholder" })
+
 -- Gitsigns
 keymap("n", "<leader>gss", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })
 keymap("n", "<leader>gsu", "<cmd>Gitsigns undo_stage_hunk<cr>", { desc = "Unstage hunk" })

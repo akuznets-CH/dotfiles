@@ -41,3 +41,9 @@ vim.o.undofile = true
 
 -- Prevent layout shift from diagnostics
 vim.o.signcolumn = "yes"
+
+-- Completion menu: always show, don't auto-select, show docs popup, fuzzy match
+vim.o.completeopt = "menu,menuone,noselect,popup,fuzzy"
+
+-- Rounded borders for floating windows (hover, signature help, completion docs)
+vim.o.winborder = "rounded"
