@@ -25,6 +25,7 @@ symlink-mac:
 	@ln -sfnv "$(PWD)/src/ghostty/ghostty"    "$(HOME)/.config/ghostty"
 
 	@mkdir -p "$(HOME)/.local/bin"
+	@ln -sfnv "$(PWD)/src/tmux/tinit.sh"      "$(HOME)/.local/bin/tinit"
 	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"     "$(HOME)/.local/bin/tscope"
 	@ln -sfnv "$(PWD)/src/tmux/wtscope.sh"    "$(HOME)/.local/bin/wtscope"
 
